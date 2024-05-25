@@ -1,8 +1,8 @@
 header{
     position: sticky;
 }
-
-nav {
+/* style navbar */
+.nav_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,19 +18,19 @@ nav {
     font-size: 24px;
     text-decoration: none;
   }
-  nav ul{
+  .nav_container .Nav_links{
     list-style: none;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  nav li {
+  .nav_container .Nav_item {
     list-style: none;
     margin-right: 20px;
 
   }
   
-  nav li a {
+  .nav_container .Nav_item .item_nav {
     font-weight: 700;
     flex: 1;
     color: black;
@@ -38,11 +38,11 @@ nav {
     transition: color 0.3s;
   }
   
-  nav li a:hover {
+  .nav_container .Nav_item .item_nav:hover {
     color: #007bff;
   }
-
-
+/* end style navbar */
+ *
   body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -177,7 +177,7 @@ p {
     flex-direction: column;
 }
 
-input, textarea {
+/* input, textarea {
     padding: 2rem ;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
@@ -196,9 +196,10 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
+} */
 
 
+/* style footer */
   .footer {
     background-color: #333;
     color: #fff;
@@ -216,12 +217,173 @@ button:hover {
     padding: 0;
 }
 
-.footer-links li {
+.footer-links .footer_item {
     display: inline-block;
     margin-right: 0.6rem;
 }
 
-.footer-links a {
+.footer-links .footer_item .item_footer {
     color: #fff;
     text-decoration: none;
 }
+/* end style footer */
+
+
+/* style register */
+.register-body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+}
+
+.register-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.register-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.register-form {
+    width: 100%;
+}
+
+.register-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.register-item {
+    margin-bottom: 15px;
+}
+
+.register-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.register-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background-color: rgb(27, 27, 194);
+    transition: ease-in-out 0.5s;
+}
+.item-register{
+    font-weight: 700;
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* end style register */
+
+
+/* login style */
+.login-body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.login-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.login-item {
+    margin-bottom: 15px;
+}
+
+.login-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.login-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: rgb(27, 27, 194);
+    transition: ease-in-out 0.5s;
+}
+
+.item-login{
+    font-weight: 700;
+    color: blue;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+/* end login style */

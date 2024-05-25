@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +12,10 @@
 <body>
 <header>
 <?php
-        include "navbar.php"
+        include "components/navbar.php"
     ?>
 </header>
-    <?php 
-        include 'connection.php'
-    ?>
+    
     <div class="container">
         
 
@@ -53,7 +54,7 @@
     </div>
 
     <?php
-        include "footer.php"
+        include "components/footer.php"
     ?>
 
 <script>
