@@ -12,6 +12,9 @@
         include "navbar.php"
     ?>
 </header>
+    <?php 
+        include 'connection.php'
+    ?>
     <div class="container">
         
 
