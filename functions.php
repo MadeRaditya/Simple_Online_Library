@@ -8,6 +8,36 @@
     
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
+    };
+
+    function getBook(){
+        global $conn;
+        $query = 'SELECT * FROM books';
+        $result = mysqli_query($conn, $query);
+        
+        if (!$result) {
+            die("Error: " . mysqli_error($conn));
+        }
+        
+        $books = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $books[] = $row;
+        }
+        
+        return $books;
+    }
+    
+    function getPdfPath($title){
+    $pdfDir = 'uploads/book/';
+    $pdfFiles = scandir($pdfDir);
+
+    foreach ($pdfFiles as $file) {
+        if (strpos($file, $title) !== false && pathinfo($file, PATHINFO_EXTENSION) === 'pdf') {
+            return $pdfDir . $file;
+        }
+    }
+
+        return '';
     }
 
 
@@ -69,6 +99,10 @@
         return mysqli_affected_rows($conn);
     }
 
+
+    function tambah(){
+        
+    }
 ?>
 
 

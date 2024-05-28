@@ -12,7 +12,7 @@
 
 
 <nav class="nav_container">
-        <a class="logo" href="index.html">Reader</a>
+        <a class="logo" href="index.php">Reader</a>
         <ul class="Nav_links">
             <li class="Nav_item"><a href="index.php" class="item_nav">Home</a></li>
             <li class="Nav_item"><a href="about.php" class="item_nav">About</a></li>

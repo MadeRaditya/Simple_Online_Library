@@ -1,9 +1,14 @@
 <?php
     session_start();
+    
+    include "functions.php";
+
     if(!isset($_SESSION["login"])){
         header("Location:login.php");
         exit;
     }
+
+    $books = getBook();
 
 ?>
 
@@ -32,31 +37,17 @@
         </div>
             <a href="tambah_buku.php"><button id="add-book">Tambah Buku</button></a>
         <div class="book-list">
+            <?php
+            foreach($books as $book) :?>
                 <div class="book">
                     <div class="book-cover">
-                        <img src="img/example.jpg" alt="Sampul Buku 1 " >
+                        <img src="uploads/cover/<?=$book['cover']?>" alt="Sampul Buku  " >
                     </div>
-                    <h2>adab </h2>
-                    <p class="book-description">writer: </p>
-                    <a href="ebook1/buku1.html">read</a>
+                    <h2><?= $book['title'] ?> </h2>
+                    <p class="book-description"><?= $book['author']?></p>
+                    <a href="Book.php?title=<?= urlencode($book['title']) ?>">read</a>
                 </div>
-                <div class="book">
-                    <div class="book-cover">
-                        <img src="img/example.jpg" alt="Sampul Buku 1 " >
-                    </div>
-                    <h2>Title : </h2>
-                    <p class="book-description">writer: </p>
-                    <a href="ebook1/buku1.html">read</a>
-                </div>
-                <div class="book">
-                    <div class="book-cover">
-                        <img src="img/example.jpg" alt="Sampul Buku 1 " >
-                    </div>
-                    <h2>Title : </h2>
-                    <p class="book-description">writer: </p>
-                    <a href="ebook1/buku1.html">read</a>
-                </div>
-            </div>
+            <?php endforeach?>
     </div>
 
     <?php

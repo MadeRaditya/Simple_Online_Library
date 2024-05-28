@@ -28,23 +28,29 @@ if (isset($_POST['add-book'])) {
     $cover = $_FILES['cover']['name'];
     $book = $_FILES['book']['name'];
 
+    echo $title;
+    echo $author;
+    echo $cover;
+    echo $book;
     // Upload cover image
     if (!empty($cover)) {
-        $target_dir = "uploads/";
+        $target_dir = "uploads/cover/";
         $cover_file = $title . '.' . pathinfo($cover, PATHINFO_EXTENSION); 
         $target_file = $target_dir . $cover_file;
         move_uploaded_file($_FILES["cover"]["tmp_name"], $target_file);
     }
+    
 
     // Upload book file
     if (!empty($book)) {
-        $target_dir = "uploads/";
+        $target_dir = "uploads/book/";
         $book_file = $title . '.' . pathinfo($book, PATHINFO_EXTENSION);
         $target_file = $target_dir . $book_file;
         move_uploaded_file($_FILES["book"]["tmp_name"], $target_file);
     }
-
+    
     $postedby = $_SESSION['user_id']; 
+    echo $postedby;
     $query = "INSERT INTO books (title, author, posted_by, cover, file_name, create_time) VALUES ('$title', '$author', '$postedby', '$cover_file', '$book_file', NOW())";
 
     mysqli_query($conn, $query);
@@ -88,7 +94,7 @@ if (isset($_POST['add-book'])) {
                     <input type="file" name="book" id="book" class="add-book-input" required>
                 </li>
                 <li class="add-book-item">
-                    <button type="submit" name="add-book-button">Submit</button>
+                    <button type="submit" name="add-book">Submit</button>
                 </li>
             </ul>
         </form>
