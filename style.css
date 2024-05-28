@@ -88,6 +88,24 @@ p {
     line-height: 1.6;
 }
 
+
+#add-book {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 1rem;
+    transition: transform 0.2s;
+}
+
+#add-book:hover {
+    background-color: rgb(103, 103, 255);
+    transform: scale(1.05);
+}
+
 .search-container {
     text-align: center;
     margin-bottom: 20px;
@@ -441,6 +459,53 @@ button:hover {
     transform: rotate(45deg);
 }
 
-
-
 /* end login style */
+.add-book-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-book-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.add-book-item {
+    margin-bottom: 15px;
+}
+
+.add-book-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.add-book-input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.add-book-item button {
+    padding: 10px;
+    background-color: blue;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-book-item button:hover {
+    background-color: rgb(27, 27, 194);
+    transition: ease-in-out 0.5s;
+}
+/* start tambah_buku style */

@@ -10,7 +10,8 @@
         $row = mysqli_fetch_assoc($result);
 
         if($key === hash('sha256', $row['password'])){
-            $_SESSION = true;
+            $_SESSION["login"] = true;
+            $_SESSION["user_id"] = $row["user_id"];
         }
     }
     if(isset($_SESSION["login"])){
@@ -29,8 +30,8 @@
             $row = mysqli_fetch_assoc($result);
             if(password_verify($password, $row["password"])){
 
-
-                $_SESSION["login"]=true;
+                $_SESSION["login"] = true;
+                $_SESSION["user_id"] = $row["user_id"];
 
                 if(isset($_POST['remember'])){
                     setcookie("e", hash('sha256',$row['email']), time()+1800);

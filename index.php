@@ -23,16 +23,15 @@
     ?>
 </header>
     
-    <div class="container">
-        
-
-            <h1>Selamat datang di Perpustakaan Ebook</h1>
-            <h2>Fell free for reading book</h2>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Cari judul buku..." style="height: 1rem; width: 30rem;">
-                <button id="search-button" onclick="searchBooks()">search</button>
-            </div>
-            <div class="book-list">
+<div class="container">
+        <h1>Selamat datang di Perpustakaan Ebook</h1>
+        <h2>Fell free for reading book</h2>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Cari judul buku..." style="height: 1rem; width: 30rem;">
+            <button id="search-button" onclick="searchBooks()">search</button>
+        </div>
+            <a href="tambah_buku.php"><button id="add-book">Tambah Buku</button></a>
+        <div class="book-list">
                 <div class="book">
                     <div class="book-cover">
                         <img src="img/example.jpg" alt="Sampul Buku 1 " >
