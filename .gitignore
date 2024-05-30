@@ -1,0 +1,17 @@
+# Ignore all files in uploads directory
+uploads/*
+
+# Ignore all files in cover directory
+uploads/cover/*
+
+# Ignore all files in book directory
+uploads/book/*
+
+# Ignore all files in profil directory
+uploads/profil/*
+
+# But keep the directories
+!uploads/
+!uploads/cover/
+!uploads/book/
+!uploads/profil/

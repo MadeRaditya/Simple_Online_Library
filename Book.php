@@ -27,7 +27,7 @@ $pdfPath = getPdfPath($title);
     <h1><?= $title ?></h1>
 
     <?php if (!empty($pdfPath)): ?>
-        <embed type="application/pdf" src="<?= $pdfPath ?>" width="1300px" height="800px">
+        <embed type="application/pdf" src="<?= $pdfPath ?>" width="1400px" height="800px">
     <?php else: ?>
         <p>Buku tidak ditemukan.</p>
     <?php endif; ?>

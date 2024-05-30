@@ -9,6 +9,7 @@
     }
 
     $books = getBook();
+    
 
 ?>
 
@@ -29,26 +30,36 @@
 </header>
     
 <div class="container">
-        <h1>Selamat datang di Perpustakaan Ebook</h1>
-        <h2>Fell free for reading book</h2>
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Cari judul buku..." style="height: 1rem; width: 30rem;">
-            <button id="search-button" onclick="searchBooks()">search</button>
-        </div>
-            <a href="tambah_buku.php"><button id="add-book">Tambah Buku</button></a>
-        <div class="book-list">
-            <?php
-            foreach($books as $book) :?>
+    <h1>Selamat datang di Perpustakaan Ebook</h1>
+    <h2>Fell free for reading book</h2>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Cari judul buku..." style="height: 1rem; width: 30rem;">
+        <button id="search-button" onclick="searchBooks()">search</button>
+    </div>
+    <a href="tambah_buku.php"><button id="add-book">Tambah Buku</button></a>
+    <div class="book-list">
+        <?php
+        if (empty($books)) {
+            echo "<h1 style= text-align: center;
+            color: #333;>Silahkan tambahkan buku terlebih dahulu</h1>";
+        } else {
+            foreach ($books as $book) {
+                ?>
                 <div class="book">
                     <div class="book-cover">
-                        <img src="uploads/cover/<?=$book['cover']?>" alt="Sampul Buku  " >
+                        <img src="uploads/cover/<?= $book['cover'] ?>" alt="Sampul Buku">
                     </div>
-                    <h2><?= $book['title'] ?> </h2>
-                    <p class="book-description"><?= $book['author']?></p>
+                    <h2><?= $book['title'] ?></h2>
+                    <p class="book-description">Author: <?= $book['author'] ?></p>
+                    <p class="book-description">Posted by: <?= $book['username'] ?></p>
                     <a href="Book.php?title=<?= urlencode($book['title']) ?>">read</a>
                 </div>
-            <?php endforeach?>
+                <?php
+            }
+        }
+        ?>
     </div>
+</div>
 
     <?php
         include "components/footer.php"

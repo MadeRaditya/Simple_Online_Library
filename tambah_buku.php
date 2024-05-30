@@ -22,35 +22,47 @@ if(isset($_COOKIE["e"]) && isset($_COOKIE['i'])){
     }
 }
 
+if (isset($_GET['error'])) {
+    $error_message = urldecode($_GET['error']);
+    echo "<script>alert('" . $error_message . "');</script>";
+}
+
 if (isset($_POST['add-book'])) {
     $title = $_POST['title'];
     $author = $_POST['author'];
     $cover = $_FILES['cover']['name'];
     $book = $_FILES['book']['name'];
 
-    echo $title;
-    echo $author;
-    echo $cover;
-    echo $book;
-    // Upload cover image
+    $cover_ext = strtolower(pathinfo($cover, PATHINFO_EXTENSION));
+    $allowed_cover_ext = array('jpg', 'jpeg', 'png');
+    if (!in_array($cover_ext, $allowed_cover_ext)) {
+        $error_message = "Hanya file gambar (JPG, JPEG, PNG) yang diizinkan untuk cover!";
+        header("Location: tambah_buku.php?error=" . urlencode($error_message));
+        exit;
+    }
+
+    $book_ext = strtolower(pathinfo($book, PATHINFO_EXTENSION));
+    if ($book_ext != 'pdf') {
+        $error_message = "Hanya file PDF yang diizinkan untuk buku!";
+        header("Location: tambah_buku.php?error=" . urlencode($error_message));
+        exit;
+    }
+    
     if (!empty($cover)) {
         $target_dir = "uploads/cover/";
-        $cover_file = $title . '.' . pathinfo($cover, PATHINFO_EXTENSION); 
+        $cover_file = $title . '.' . $cover_ext;
         $target_file = $target_dir . $cover_file;
         move_uploaded_file($_FILES["cover"]["tmp_name"], $target_file);
     }
-    
 
-    // Upload book file
     if (!empty($book)) {
         $target_dir = "uploads/book/";
-        $book_file = $title . '.' . pathinfo($book, PATHINFO_EXTENSION);
+        $book_file = $title . '.' . $book_ext;
         $target_file = $target_dir . $book_file;
         move_uploaded_file($_FILES["book"]["tmp_name"], $target_file);
     }
     
-    $postedby = $_SESSION['user_id']; 
-    echo $postedby;
+    $postedby = $_SESSION['user_id'];
     $query = "INSERT INTO books (title, author, posted_by, cover, file_name, create_time) VALUES ('$title', '$author', '$postedby', '$cover_file', '$book_file', NOW())";
 
     mysqli_query($conn, $query);
