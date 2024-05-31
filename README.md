@@ -10,6 +10,8 @@ email VARCHAR
 password VARCHAR
 profile_img VARCHAR
 
+
+
 and books table:
 id (Primary Key) INT AUTO INCREMENT
 title VARCHAR
@@ -21,6 +23,7 @@ create_at Time_Stamp() defaults Now
 update_at Time_Stamp() defaults Now
 
 or use the data base available in the database table
+Oh don't forget to delete these users and books tables
 
 
 // ID
@@ -49,3 +52,4 @@ create_at Time_Stamp() default Now
 update_at Time_Stamp() default Now
 
 atau gunakan data base yang tersedia di tabel database
+Oh jangan lupa hapus ini tabel users dan books
