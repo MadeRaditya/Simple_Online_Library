@@ -9,8 +9,6 @@
     }
 
     $books = getBook();
-    
-
 ?>
 
 
@@ -29,12 +27,12 @@
     ?>
 </header>
     
-<div class="container">
+<div class="container" id="container">
     <h1>Selamat datang di Perpustakaan Ebook</h1>
     <h2>Fell free for reading book</h2>
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Cari judul buku..." style="height: 1rem; width: 30rem;">
-        <button id="search-button" onclick="searchBooks()">search</button>
+        <button id="search-button" onclick="">search</button>
     </div>
     <a href="tambah_buku.php"><button id="add-book">Tambah Buku</button></a>
     <div class="book-list">
@@ -65,7 +63,9 @@
         include "components/footer.php"
     ?>
 
-<script>
+<script src="jquery/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+<!-- <script>
         function searchBooks() {
             let input = document.getElementById('search-input');
             let filter = input.value.toUpperCase();
@@ -89,6 +89,6 @@
                     searchBooks();
                 }
             });
-    </script>
+    </script> -->
 </body>
 </html>

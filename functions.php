@@ -41,6 +41,25 @@
         return '';
     }
 
+    function search($keyword) {
+        global $conn;
+        $query = "SELECT b.*, u.username
+                  FROM books b
+                  JOIN users u ON b.posted_by = u.user_id
+                  WHERE b.title LIKE '%$keyword%' OR b.author LIKE '%$keyword%'";
+        $result = mysqli_query($conn, $query);
+    
+        if (!$result) {
+            die("Error: " . mysqli_error($conn));
+        }
+    
+        $books = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $books[] = $row;
+        }
+        return $books;
+    }
+
 
     function register($data){
         global $conn;
